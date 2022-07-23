@@ -9,7 +9,6 @@ class ViewController: UIViewController {
     var currentIndex = 0
     var toggle: Bool = true
 
-    //var arrayImages: [UIImage?] = [UIImage(named: "img2")]
     var arrayImages = [UIImage?]()
     var commentsLabelsArray: [UILabel] = []
     var datesLabelsArray: [UILabel] = []
@@ -407,21 +406,24 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-              
-        let newComment = commentField.text!
-        
-        if myPost[currentIndex].comment.count < commentsLabelsArray.count {
-            myPost[currentIndex].comment.append(newComment)
+        if commentField.text == "" {
+            return false
+        } else {
+            let newComment = commentField.text!
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .short
-            dateFormatter.timeStyle = .short
-            myPost[currentIndex].commentDate.append(dateFormatter.string(from: Date()))
-            
-            fillLabelsFromArray()
-            fillDatesFromArray()
-            encodeArray()
-        }        
+            if myPost[currentIndex].comment.count < commentsLabelsArray.count {
+                myPost[currentIndex].comment.append(newComment)
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .short
+                dateFormatter.timeStyle = .short
+                myPost[currentIndex].commentDate.append(dateFormatter.string(from: Date()))
+                
+                fillLabelsFromArray()
+                fillDatesFromArray()
+                encodeArray()
+            }
+        }
         
         commentField.text = nil
         commentField.endEditing(true)
