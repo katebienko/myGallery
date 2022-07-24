@@ -399,6 +399,11 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             
             myPost.append(Post(imageName: "", comment: [], description: "Standart description", like: false, commentDate: [], imageDate: dateFormatter.string(from: Date())))
             arrayImages.append(image)
+            
+            imageUsed.image = arrayImages[currentIndex]
+            dateImageLabel.text = myPost[currentIndex].imageDate
+            descriptionLabel.text = myPost[currentIndex].description
+            setLikeImage()
              
             encodeArray()
             saveImagesToFolder()
