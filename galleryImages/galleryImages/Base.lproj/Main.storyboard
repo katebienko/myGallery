@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dNH-qN-uu1">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -9,10 +9,84 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Qgi-S4-aYp">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="dNH-qN-uu1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8nf-mu-S4c">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gyR-BW-KNa" kind="relationship" relationship="rootViewController" id="JJA-MZ-QqI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0aq-A6-lcu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1578" y="63"/>
+        </scene>
+        <!--Password View Controller-->
+        <scene sceneID="UOR-zA-Tv9">
+            <objects>
+                <viewController storyboardIdentifier="PasswordViewController" id="gyR-BW-KNa" customClass="PasswordViewController" customModule="galleryImages" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bhv-qK-erK">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2W-WI-neH">
+                                <rect key="frame" x="20" y="268" width="350" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gQv-LN-TYQ">
+                                <rect key="frame" x="20" y="337" width="350" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="eoO-dQ-ZEu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQy-am-30M">
+                                <rect key="frame" x="20" y="402" width="350" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.13795540549999999" blue="0.13021504810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="TbK-2k-m6n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="SIGN IN"/>
+                                <connections>
+                                    <action selector="signInButtonAction:" destination="gyR-BW-KNa" eventType="touchUpInside" id="y8x-wT-26g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WiM-o8-1s5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WiM-o8-1s5" firstAttribute="trailing" secondItem="gQv-LN-TYQ" secondAttribute="trailing" constant="20" id="0o7-ll-BPP"/>
+                            <constraint firstItem="xQy-am-30M" firstAttribute="centerY" secondItem="WiM-o8-1s5" secondAttribute="centerY" id="6gh-cO-pAY"/>
+                            <constraint firstItem="gQv-LN-TYQ" firstAttribute="top" secondItem="Z2W-WI-neH" secondAttribute="bottom" constant="40" id="M3x-zK-zfz"/>
+                            <constraint firstItem="xQy-am-30M" firstAttribute="leading" secondItem="WiM-o8-1s5" secondAttribute="leading" constant="20" id="O7n-QV-bz5"/>
+                            <constraint firstItem="WiM-o8-1s5" firstAttribute="trailing" secondItem="xQy-am-30M" secondAttribute="trailing" constant="20" id="Tpr-yS-xD2"/>
+                            <constraint firstItem="xQy-am-30M" firstAttribute="top" secondItem="gQv-LN-TYQ" secondAttribute="bottom" constant="20" id="g4S-2u-gth"/>
+                            <constraint firstItem="WiM-o8-1s5" firstAttribute="trailing" secondItem="Z2W-WI-neH" secondAttribute="trailing" constant="20" id="voW-HG-6cl"/>
+                            <constraint firstItem="gQv-LN-TYQ" firstAttribute="leading" secondItem="WiM-o8-1s5" secondAttribute="leading" constant="20" id="yrZ-DQ-SiC"/>
+                            <constraint firstItem="Z2W-WI-neH" firstAttribute="leading" secondItem="WiM-o8-1s5" secondAttribute="leading" constant="20" id="zd5-h0-AV7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HHz-RE-D1h"/>
+                    <connections>
+                        <outlet property="textFieldPassword" destination="gQv-LN-TYQ" id="ssI-qm-d9k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0d5-qn-KNp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-769" y="63"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="galleryImages" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="galleryImages" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
