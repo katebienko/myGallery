@@ -1,0 +1,6 @@
+target 'galleryImages' do
+  use_frameworks!
+
+  pod 'KeychainSwift'
+
+end

@@ -272,6 +272,7 @@ class ViewController: UIViewController {
                 setLikeImage()
                 dateImageLabel.text = myPost[currentIndex].imageDate
             }
+            
             else {
                 currentIndex = 0
                 imageUsed.image = arrayImages[currentIndex]
@@ -309,6 +310,7 @@ class ViewController: UIViewController {
                 setLikeImage()
                 dateImageLabel.text = myPost[currentIndex].imageDate
             }
+            
             else {
                 currentIndex = arrayImages.count - 1
                 imageAnother.image = arrayImages[currentIndex]
@@ -342,6 +344,7 @@ class ViewController: UIViewController {
                 setLikeImage()
                 dateImageLabel.text = myPost[currentIndex].imageDate
             }
+            
             else {
                 currentIndex = arrayImages.count - 1
                 imageUsed.image = arrayImages[currentIndex]
@@ -406,23 +409,24 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if commentField.text == "" {
+        
+        guard commentField.text != "" else {
             return false
-        } else {
-            let newComment = commentField.text!
+        }
+        
+        let newComment = commentField.text!
             
-            if myPost[currentIndex].comment.count < commentsLabelsArray.count {
-                myPost[currentIndex].comment.append(newComment)
+        if myPost[currentIndex].comment.count < commentsLabelsArray.count {
+            myPost[currentIndex].comment.append(newComment)
                 
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateStyle = .short
-                dateFormatter.timeStyle = .short
-                myPost[currentIndex].commentDate.append(dateFormatter.string(from: Date()))
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .short
+            myPost[currentIndex].commentDate.append(dateFormatter.string(from: Date()))
                 
-                fillLabelsFromArray()
-                fillDatesFromArray()
-                encodeArray()
-            }
+            fillLabelsFromArray()
+            fillDatesFromArray()
+            encodeArray()
         }
         
         commentField.text = nil
