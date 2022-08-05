@@ -4,7 +4,7 @@ class ViewController: UIViewController {
    
     let leftOut = -400
     let rightOut = 400
-    let originPosition = 20
+    let originPosition = 0.0
     let step = 20
     var currentIndex = 0
     var toggle: Bool = true
@@ -20,8 +20,8 @@ class ViewController: UIViewController {
     let documentFolderURL: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     lazy var imagesFolderURL: URL = documentFolderURL.appendingPathComponent("images")
     
-    @IBOutlet private weak var imageAnotherLeading: NSLayoutConstraint!
-    @IBOutlet private weak var imageUsedLeading: NSLayoutConstraint!
+    @IBOutlet weak var imageUsegHorizontalCenter: NSLayoutConstraint!
+    @IBOutlet weak var imageAnotherHorizontalCenter: NSLayoutConstraint!
     @IBOutlet private weak var imageUsed: UIImageView!
     @IBOutlet private weak var imageAnother: UIImageView!
     @IBOutlet private weak var like_noactive: UIButton!
@@ -217,14 +217,14 @@ class ViewController: UIViewController {
     @objc func handleGestureRight(gesture: UISwipeGestureRecognizer) -> Void {
         currentIndex += 1
 
-        if imageUsedLeading.constant == CGFloat(originPosition) {
-            imageAnotherLeading.constant = CGFloat(leftOut)
+        if imageUsegHorizontalCenter.constant == CGFloat(originPosition) {
+            imageAnotherHorizontalCenter.constant = CGFloat(leftOut)
             
             Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: { [self] timer in
-                imageUsedLeading.constant += CGFloat(step)
-                imageAnotherLeading.constant += CGFloat(step)
+                imageUsegHorizontalCenter.constant += CGFloat(step)
+                imageAnotherHorizontalCenter.constant += CGFloat(step)
                 
-                if imageAnotherLeading.constant == CGFloat(originPosition) {
+                if imageAnotherHorizontalCenter.constant == CGFloat(originPosition) {
                     timer.invalidate()
                 }
             })
@@ -251,14 +251,14 @@ class ViewController: UIViewController {
             }
         }
         
-        else if imageAnotherLeading.constant == CGFloat(originPosition) {
-            imageUsedLeading.constant = CGFloat(leftOut)
+        else if imageAnotherHorizontalCenter.constant == CGFloat(originPosition) {
+            imageUsegHorizontalCenter.constant = CGFloat(leftOut)
 
             Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: { [self] timer in
-                imageUsedLeading.constant += CGFloat(step)
-                imageAnotherLeading.constant += CGFloat(step)
+                imageUsegHorizontalCenter.constant += CGFloat(step)
+                imageAnotherHorizontalCenter.constant += CGFloat(step)
                 
-                if imageUsedLeading.constant == CGFloat(originPosition) {
+                if imageUsegHorizontalCenter.constant == CGFloat(originPosition) {
                     timer.invalidate()
                 }
             })
@@ -289,14 +289,14 @@ class ViewController: UIViewController {
     @objc func handleGestureLeft(gesture: UISwipeGestureRecognizer) -> Void {
         currentIndex -= 1
             
-        if imageUsedLeading.constant == CGFloat(originPosition) {
-            imageAnotherLeading.constant = 400
+        if imageUsegHorizontalCenter.constant == CGFloat(originPosition) {
+            imageAnotherHorizontalCenter.constant = 400
             
             Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: { [self] timer in
-                imageUsedLeading.constant -= CGFloat(step)
-                imageAnotherLeading.constant -= CGFloat(step)
+                imageUsegHorizontalCenter.constant -= CGFloat(step)
+                imageAnotherHorizontalCenter.constant -= CGFloat(step)
                 
-                if imageAnotherLeading.constant == CGFloat(originPosition) {
+                if imageAnotherHorizontalCenter.constant == CGFloat(originPosition) {
                     timer.invalidate()
                 }
             })
@@ -323,14 +323,14 @@ class ViewController: UIViewController {
             }
         }
         
-        else if imageAnotherLeading.constant == CGFloat(originPosition) {
-            imageUsedLeading.constant = CGFloat(rightOut)
+        else if imageAnotherHorizontalCenter.constant == CGFloat(originPosition) {
+            imageUsegHorizontalCenter.constant = CGFloat(rightOut)
             
             Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: { [self] timer in
-                imageUsedLeading.constant -= CGFloat(step)
-                imageAnotherLeading.constant -= CGFloat(step)
+                imageUsegHorizontalCenter.constant -= CGFloat(step)
+                imageAnotherHorizontalCenter.constant -= CGFloat(step)
                 
-                if imageUsedLeading.constant == CGFloat(originPosition) {
+                if imageUsegHorizontalCenter.constant == CGFloat(originPosition) {
                     timer.invalidate()
                 }
             })
