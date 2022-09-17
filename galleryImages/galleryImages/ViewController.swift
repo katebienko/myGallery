@@ -173,6 +173,7 @@ class ViewController: UIViewController {
         do {
             let imageName = try FileManager.default.contentsOfDirectory(atPath: imagesFolderURL.path).filter({ $0.contains(".jpg") }).sorted()
             let imageURL = documentFolderURL.appendingPathComponent("images")
+            print(imageURL.path)
             
             for img in imageName {
                 let imageNames = imageURL.appendingPathComponent(img)
